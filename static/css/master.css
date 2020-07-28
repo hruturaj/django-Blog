@@ -1,0 +1,354 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@360&display=swap');
+
+/* Main Content */
+
+body {
+    font-family: 'Montserrat';
+}
+
+.bgImage {
+    background-image: url('/media/bg_01.jpg');
+    background-origin: border-box;
+    background-clip: border-box;
+    background-position: left 10% bottom 30%;
+    background-repeat: space;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    margin: 0;
+    position: fixed;
+    top: 0;
+}
+
+nav a span.navbar-brand-logo {
+    font-family: 'Limelight';
+    font-size: 34px;
+    color: tomato;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar-headers {
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+.mainBlockContainer {
+    margin-top: 100px;
+}
+
+.navbar-text {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.landing--section {
+    padding: 60px 30px 40px 60px;
+}
+
+.homePageTitle {
+    text-align: center;
+    font-family: Courier, monospace;
+    font-weight: bolder;
+    font-size: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40%;
+    text-transform: capitalize;
+}
+
+.landing--section .image--holder {
+    background-image: url('/media/blogging-concept-.jpg');
+    border-radius: 100%;
+    width: 340px;
+    height: 340px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 100px 0 30px;
+}
+
+.working-section {
+    display: block;
+    margin: 60px 0px;
+    background-color: mediumslateblue;
+}
+
+.working-section--title {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    padding: 30px 0px;
+    color: mediumturquoise;
+    font-family: Courier, monospace;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.working-section--container {
+    margin: 15px 64px;
+    display: inline-block;
+    width: 38%;
+    vertical-align: top;
+    padding: 5px 20px 5px 20px;
+}
+
+.working-section--image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.working-section--image-container {
+    width: 88%;
+    height: 320px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+
+.working-section--description>h4 {
+    display: block;
+    text-align: center;
+    margin: 0px auto;
+    padding: 20px 0px 30px 0;
+    color: darkred;
+    font-family: Courier, monospace;
+    font-weight: bolder;
+    font-size: 26px;
+    text-transform: capitalize;
+}
+
+.myForm {
+    background: rgba(255, 255, 255, 0.88);
+    width: 500px;
+    display: block;
+    box-shadow: 3px 3px 3px slategrey, inset 11px -2em 2em 1em rgba(41, 43, 48, 0.1);
+    border: 4px solid rgb(85, 110, 124);
+    margin: 200px auto 150px auto;
+    padding: 15px 75px 17px 25px
+}
+
+.signUp {
+    margin: 20px auto 15px auto;
+}
+
+.myForm .myForm-header {
+    padding: 5px 0 5px 0;
+    font-family: 'Fondamento';
+    font-size: 32px;
+    text-transform: capitalize;
+}
+
+.myForm-button {
+    float: right;
+    top: -8px;
+    left: 60px;
+    position: relative;
+    box-shadow: 5px 4px 5px gray;
+}
+
+.myForm-button:hover {
+    background: rgb(73, 143, 184);
+}
+
+.post {
+    width: 100%;
+    margin: auto;
+}
+
+.post .postBlock {
+    width: 31.6%;
+    display: inline-grid;
+    text-align: justify;
+    padding: 15px 10px 10px 10px;
+    box-shadow: 2px 2px 2px rgba(207, 202, 202, 0.671), -2px 2px 2px gray, 0 3px 3px whitesmoke;
+    margin: 10px 7px;
+    border-top: 2px solid black;
+    height: 450px;
+    background: linear-gradient(to bottom right, rgba(199, 183, 183, 0.837), rgba(99, 99, 133, 0.853));
+    border-radius: 10px;
+}
+
+.post .postBlock .postHeader {
+    font-family: 'Fondamento';
+    font-size: 21px;
+    margin: 0;
+    text-decoration: underline;
+    padding: 0 5px 0 5px;
+    text-align: center;
+    color: rgb(48, 31, 128);
+    font-weight: bold;
+}
+
+.post .postBlock .postFrom {
+    font-family: serif;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: rgb(8, 34, 34);
+}
+
+.post .postBlock .postFrom a {
+    color: rgb(8, 34, 34);
+}
+
+.post .postBlock .postDate {
+    font-family: serif;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+    display: block;
+    padding-top: 25px;
+    color: rgb(8, 34, 34);
+}
+
+.post .postBlock .postMessage {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    color: black;
+}
+
+.post .postBlock .postNotPublished {
+    color: red;
+    font-weight: 500;
+    font-family: serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.post .postBlock .commentCount {
+    font-family: serif;
+    font-size: 18px;
+    text-align: right;
+    margin: 0;
+    position: relative;
+    bottom: 10px;
+    color: rgb(41, 26, 12);
+}
+
+.reply--block {
+    display: block;
+    margin: 15px 0 0 50px;
+}
+
+.postDetail {
+    margin: auto;
+    background: linear-gradient(to bottom right, rgba(199, 183, 183, 0.837), rgba(99, 99, 133, 0.853));
+    padding: 30px 2.5rem;
+    color: black;
+}
+
+.reply--Button {
+    margin: 0 50px;
+    padding: 0 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    float: inline-end;
+    background-color: deepskyblue;
+    color: darkslategray;
+}
+
+.reply--Button:hover {
+    background-color: #297396;
+    color: white;
+    text-decoration: none;
+}
+
+.postDetail .postDetailHeader {
+    font-family: 'Fondamento';
+    font-size: 34px;
+    color: rgb(39, 46, 145);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.postDetail .postDetailDate {
+    font-family: serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.postDetail .postDetailMessage {
+    text-align: justify;
+}
+
+.postDetail .postDetailPublish {
+    margin-bottom: 7px;
+}
+
+.postDetail .postDetailEdit {
+    margin-bottom: 7px;
+}
+
+.postDetail .postDetailDelete {
+    margin-bottom: 7px;
+}
+
+.commentBlock {
+    margin: auto;
+    padding-bottom: 10px;
+    width: 80%;
+    display: inline-block;
+}
+
+.commentBlock .commentDate {
+    font-family: serif;
+    font-size: 18px;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.commentBlock .commentMessage {
+    text-align: justify;
+    margin: 0;
+}
+
+.commentBlock .commentTitle {
+    font-family: 'Fondamento';
+    font-size: 17px;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.commentBlock .NoComments {
+    font-family: serif;
+    font-size: 21px;
+    margin: 5px 0 0 0;
+    text-transform: capitalize;
+}
+
+.user-info {
+    display: block;
+    text-align: center;
+}
+
+.user-info--Username {
+    font-size: 34px;
+    font-family: 'Fondamento';
+    text-transform: uppercase;
+    text-align: center;
+    color: tomato;
+    font-weight: bolder;
+    text-shadow: 2px 2px 1px darkgray;
+}
+
+.userPost--postTitle {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: serif;
+    margin: 50px 0 0 0px;
+    text-align: initial;
+    color: lightseagreen;
+    font-weight: 600;
+    border-bottom: 4px solid darksalmon;
+    padding: 0 0 0 20px;
+}

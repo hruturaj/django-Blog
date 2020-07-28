@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% block content %} {% if user.is_authenticated %}
+<h3 class="postFormHeader">{{formName}} Post</h3>
+<form class="postForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="username" value="{{user.username}}"> {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary" value="newPost">
+</form>
+{% endif %}
+
+<div class="postDraft"></div>
+
+{% endblock %}

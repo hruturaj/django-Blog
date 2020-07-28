@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="user-info">
+    <h4 class="user-info--Username">Username : {{userPost}} </h4>
+</div>
+
+<div class="post">
+    <h6 class="userPost--postTitle">{{userPost}}'s All Post : </h6>
+    {% for post in posts %} {% if post.user.username == userPost %}
+    <div class="postBlock">
+        <a class="postHeader" href="{% url 'blog:postDetail' pk=post.pk %}">{{post.title}}</a>
+        <p class="postMessage">
+            {{post.message|safe|truncatewords:58}}
+        </p>
+        <p class="postDate">Published On : {{post.published_date|date:"d M Y"}}
+            <br> <span class="postFrom">Post From : {{post.user.username}}</span>
+        </p>
+        <a class="commentCount" href="{% url 'blog:postDetail' pk=post.pk %}">Comments : {{post.approve_comments|length}}</a>
+        <br>
+    </div>
+    {% endif %}{% endfor %}
+</div>
+
+
+{% endblock %}

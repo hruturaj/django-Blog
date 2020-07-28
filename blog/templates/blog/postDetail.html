@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="postDetail">
+    <h3 class="postDetailHeader">{{post.title|title}}</h3>
+    {% if post.published_date %}
+    <div class="postDetailDate">
+        <p>{{post.published_date}}</p>
+    </div>
+    {% else %}
+    <a href="{% url 'blog:postPublish' pk=post.pk %}" class="btn btn-success postDetailPublish">Publish</a> <br> {% endif %} {% if user.is_authenticated and post.user.username == user.username %}
+    <a href="{% url 'blog:postEdit' pk=post.pk %}" class="btn btn-primary postDetailEdit ">Edit</a>
+    <a href="{% url 'blog:postDelete' pk=post.pk %}" class="btn btn-primary postDetailDelete">Delete</a> {% endif %}
+
+    <!-- post message -->
+    <p class="postDetailMessage">
+        {{ post.message|safe|linebreaksbr }}
+    </p>
+
+    <hr> {% if user.username != post.user.username %}
+    <a href="{% url 'blog:newComment' pk=post.pk %}" class="btn btn-primary float-right">Add Comment</a> {% endif %}
+
+
+    <div class="container commentBlock">
+        {% for comment in post.comments.all %}
+        <br> {% if user.is_authenticated and comment.approved_comments or post.user.username == user.username %}
+        <p class="commentDate">{{comment.create_date}} &emsp;&emsp; {% if not comment.approved_comments and user.username == post.user.username %}
+            <a href="{% url 'blog:commentApprove' pk=comment.pk %}" class="btn btn-primary postDetailEdit">Approve</a>
+            <a href="{% url 'blog:commentRemove' pk=comment.pk %}" class="btn btn-primary postDetailDelete">Remove</a> {% endif %}
+        </p>
+        <p class="commentMessage">{{ comment.message|safe|linebreaksbr }}</p>
+        <p class="commentTitle">
+            Comment From : {{ comment.author }}
+            <a href="{% url 'blog:newReply' pk=comment.pk %}" class="reply--Button">Reply</a>
+        </p>
+        {% for reply in comment.replies.all %}
+        <div class="reply--block">
+            <p class="commentDate"> {{reply.create_date}}</p>
+            <p class="commentMessage">{{ reply.message|safe|linebreaksbr }}</p>
+            <p class="commentTitle">
+                Reply From : {{ reply.author }}
+            </p>
+        </div>
+        {% endfor %}
+        <hr> {% elif comment.approved_comments %}
+        <p class="commentDate"> {{comment.create_date}}</p>
+        <p class="commentMessage">{{ comment.message|safe|linebreaksbr }}</p>
+        <p class="commentTitle">
+            Comment From : {{ comment.author }}
+            <a href="{% url 'blog:newReply' pk=comment.pk %}" class="reply--Button">Reply</a>
+        </p>
+        {% for reply in comment.replies.all %}
+        <div class="reply--block">
+            <p class="commentDate"> {{reply.create_date}}</p>
+            <p class="commentMessage">{{ reply.message|safe|linebreaksbr }}</p>
+            <p class="commentTitle">
+                Reply From : {{ reply.author }}
+            </p>
+        </div>
+        {% endfor %}
+        <hr> {% endif %} {% empty %}
+        <p class="NoComments">No Comments for this post yet!</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

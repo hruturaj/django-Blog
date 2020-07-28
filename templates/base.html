@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shayari Blog</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cerulean/bootstrap.min.css" integrity="sha384-b+jboW/YIpW2ZZYyYdXczKK6igHlnkPNfN9kYAbqYV7rNQ9PKTXlS2D6j1QZIATW" crossorigin="anonymous">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bgImage"> </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'home' %}"> <span class="navbar-brand-logo"><i class="ri-stack-fill" style="vertical-align: middle;"></i> Anyone's Blog</span> </a>
+
+        <div class="collapse navbar-collapse navbar-headers" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'blog:postList' %}">Blogs</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'blog:userPosts' userName=user.username %}">My Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'blog:postDraft' %}">Draft</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'blog:newPost' %}">New Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'accounts:logout' %}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont active navbar-text"> Welcome: {{ user.username }}</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'accounts:login' %}?next={{ request.path|urlencode }} ">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navLinkFont navbar-text" href="{% url 'accounts:signUp' %}">SignUp</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            <!-- Search button 
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            -->
+        </div>
+    </nav>
+
+    <!-- Content block -->
+    <div class="container mainBlockContainer">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% block content %} {% if user.is_authenticated %}
+<h3 class="commentFormHeader">{{formName}} Form</h3>
+
+<form class="commentForm" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="username" value="{{user.username}}"> {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary" value="commentForm">
+</form>
+{% endif %} {% endblock %}

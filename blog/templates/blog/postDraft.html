@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<div class="post">
+    {% for post in data %} {% if user.username == post.user.username %}
+    <div class="postBlock">
+        <a class="postHeader" href="{% url 'blog:postDetail' pk=post.pk %}">{{post.title}}</a>
+        <p class="postNotPublished">Attention! This post is not published. Click on title of this post for publishing this page.</p>
+        <p class="postMessage">
+            {{post.message|safe|truncatechars:358}}
+        </p>
+        <p class="postDate">
+            <br> <span class="postFrom">Post From : {{post.user.username}}</span>
+        </p>
+        <br>
+    </div>
+    {% endif %}{% endfor %}
+</div>
+{% endblock %}
